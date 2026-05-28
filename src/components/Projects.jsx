@@ -5,28 +5,28 @@ import { Github, ExternalLink, Folder } from 'lucide-react';
 const Projects = () => {
   const projectsData = [
     {
-      title: "Scalable Cloud Monorepo",
-      description: "Architected a highly scalable backend monorepo utilizing Prisma ORM, Neon Tech DB on AWS, and a custom HTTP/WebSocket server for real-time data processing.",
-      techStack: ["Node.js", "Prisma", "AWS", "WebSockets","JS", "TypeScript"],
-      github: "https://github.com/sainathmanda7/Mono-Repo.git",
+      title: "Pebble",
+      description: "Developed Pebble, a high-performance and scalable backend system designed for efficient data management, robust request handling, and optimized resource utilization.",
+      techStack: ["Golang", "Distributed Systems", "Backend Architecture"], // Adjust based on your exact implementation
+      github: "https://github.com/JaipreethTiruvaipati/Pebble",
       live: "#",
       glowColor: "group-hover:shadow-[0_0_30px_rgba(57,255,20,0.1)]", // Green glow
       accent: "text-[#39ff14]"
     },
     {
-      title: "HTTP Server using Go",
-      description: "Designed and implemented a high-performance HTTP server in Go, featuring custom routing, middleware support, and optimized for low-latency responses in production environments.",
-      techStack: ["Golang", "HTTP", "Networking"],
-      github: "https://github.com/sainathmanda7/basic_urlshortner.git",
+      title: "TCP-Cluster Server",
+      description: "Engineered a highly concurrent TCP cluster server in Go, leveraging goroutines and channels for efficient connection handling, load distribution, and low-latency network communication.",
+      techStack: ["Golang", "TCP/IP", "Concurrency", "Networking"],
+      github: "https://github.com/sainathmanda7/cluster-tcp-server", // Update with exact repo name
       live: "#",
       glowColor: "group-hover:shadow-[0_0_30px_rgba(139,92,246,0.1)]", // Purple glow
       accent: "text-[#8b5cf6]"
     },
     {
-      title: "URL Shortner",
-      description: "Built a URL shortener service using Node.js and Express, featuring RESTful API endpoints for creating and managing shortened URLs, with MongoDB for data persistence.", 
-      techStack: ["golang", "HTTP", "kafka", "Linux"],
-      github: "https://github.com/sainathmanda7/basic_urlshortner.git",
+      title: "AI-Mock Interview",
+      description: "Built an AI-powered mock interview platform utilizing Large Language Models to simulate technical and behavioral interviews, providing users with real-time, actionable feedback.",
+      techStack: ["Next.js", "TypeScript", "OpenAI API", "Tailwind CSS"],
+      github: "https://github.com/Molankulasrija/AI-Mock-Interview", // Update with exact repo name
       live: "#",
       glowColor: "group-hover:shadow-[0_0_30px_rgba(96,165,250,0.1)]", // Blue glow
       accent: "text-blue-400"
