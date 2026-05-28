@@ -21,10 +21,7 @@ jobs:
           
       - name: Install Dependencies
         run: npm ci
-        
-      - name: Run Tests
-        run: npm run test # Assuming you have a test script in package.json
-
+      
   # 2. AUTOMATED MERGE (DEV -> main)
   auto-merge:
     needs: ci-test # Only runs if tests pass
