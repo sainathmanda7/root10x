@@ -306,46 +306,7 @@ const SkillsSphere = () => {
 
     </section>
 
-      {/* 3-classification summary below the sphere */}
-      <section className="relative w-full bg-gradient-to-t from-[#04050a] via-[#080a18] to-[#0b101f] py-10">
-        <div className="w-full max-w-6xl mx-auto px-4 text-white">
-          <div className="mb-6 text-center">
-            <p className="text-sm uppercase tracking-widest text-cyan-200 mb-1">Skill Categories</p>
-            <h3 className="text-3xl sm:text-4xl font-extrabold text-white">What I Build & Manage</h3>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-left">
-            <div className="relative overflow-hidden rounded-2xl border border-cyan-300/20 bg-gradient-to-br from-cyan-500/10 to-cyan-900/20 p-5 shadow-[0_12px_40px_-20px_rgba(34,211,238,0.7)] transition duration-300 hover:scale-[1.02] hover:shadow-[0_18px_60px_-24px_rgba(34,211,238,0.9)]">
-              <div className="absolute -top-2 -right-2 h-24 w-24 rounded-full bg-cyan-400/20 blur-2xl" />
-              <h4 className="relative text-xl font-bold text-cyan-100 mb-3">Core Languages</h4>
-              <ul className="relative space-y-2 text-sm text-cyan-100/85">
-                <li>• C, C++, Java, Python</li>
-                <li>• JavaScript, TypeScript</li>
-                <li>• Go, Rust, Kotlin, Swift</li>
-              </ul>
-            </div>
 
-            <div className="relative overflow-hidden rounded-2xl border border-violet-300/20 bg-gradient-to-br from-violet-400/10 to-violet-900/20 p-5 shadow-[0_12px_40px_-20px_rgba(139,92,246,0.7)] transition duration-300 hover:scale-[1.02] hover:shadow-[0_18px_60px_-24px_rgba(139,92,246,0.9)]">
-              <div className="absolute -top-2 -left-2 h-24 w-24 rounded-full bg-purple-400/20 blur-2xl" />
-              <h4 className="relative text-xl font-bold text-violet-100 mb-3">Web & Frameworks</h4>
-              <ul className="relative space-y-2 text-sm text-violet-100/85">
-                <li>• HTML5, CSS3</li>
-                <li>• React, Angular, Vue.js</li>
-                <li>• Node.js, Spring Boot, Django, Flask</li>
-              </ul>
-            </div>
-
-            <div className="relative overflow-hidden rounded-2xl border border-lime-300/20 bg-gradient-to-br from-lime-400/10 to-lime-900/20 p-5 shadow-[0_12px_40px_-20px_rgba(132,204,22,0.7)] transition duration-300 hover:scale-[1.02] hover:shadow-[0_18px_60px_-24px_rgba(132,204,22,0.9)]">
-              <div className="absolute -bottom-2 -right-4 h-24 w-24 rounded-full bg-lime-400/20 blur-2xl" />
-              <h4 className="relative text-xl font-bold text-lime-100 mb-3">Cloud & DevOps</h4>
-              <ul className="relative space-y-2 text-sm text-lime-100/85">
-                <li>• AWS, Azure, GCP</li>
-                <li>• Docker, Kubernetes</li>
-                <li>• Git, SQL, AI/ML (TensorFlow, PyTorch)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 };

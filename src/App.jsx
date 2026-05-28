@@ -3,6 +3,7 @@ import { ReactLenis } from 'lenis/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Hero from './components/Hero';
 import SkillsSphere from './components/SkillsSphere';
+import Skills from './components/Skills';
 import Projects from './components/Projects';
 import GithubGraph from './components/GithubGraph';
 import Marquee from './components/Marquee'; 
@@ -98,7 +99,8 @@ function App() {
         {!loading && (
           <main className="relative z-10">
             <Hero />
-            <SkillsSphere /> 
+            <SkillsSphere />
+            <Skills /> 
             <Projects /> 
             <Marquee /> 
             <GithubGraph />

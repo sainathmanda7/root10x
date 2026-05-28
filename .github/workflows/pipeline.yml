@@ -1,0 +1,77 @@
+name: Root10x CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - DEV
+
+jobs:
+  # 1. CONTINUOUS INTEGRATION (TESTING)
+  ci-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Adjust to your project's node version
+          cache: 'npm'
+          
+      - name: Install Dependencies
+        run: npm ci
+        
+      - name: Run Tests
+        run: npm run test # Assuming you have a test script in package.json
+
+  # 2. AUTOMATED MERGE (DEV -> main)
+  auto-merge:
+    needs: ci-test # Only runs if tests pass
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Grants permission to push code
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetches all history for all branches
+
+      - name: Merge DEV into main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout main
+          git merge origin/DEV --no-ff -m "chore: auto-merge DEV to main passing CI"
+          git push origin main
+
+  # 3. CONTINUOUS DEPLOYMENT (NETLIFY)
+  cd-deploy:
+    needs: auto-merge # Only runs if merge succeeds
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main 
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies & Netlify CLI
+        run: |
+          npm ci
+          npm install -g netlify-cli
+
+      - name: Build Project
+        run: npm run build # Compiles your site (e.g., Vite, React)
+
+      - name: Deploy to Netlify Production
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        # Note: Change 'dist' below to 'build' or '.next' depending on your framework's output folder
+        run: netlify deploy --prod --dir=dist
