@@ -94,8 +94,12 @@ function App() {
 
   return (
     <ReactLenis root options={{ lerp: 0.05, smoothWheel: true }}>
-      <div className="relative w-full min-h-screen bg-[#050505] text-white overflow-hidden cursor-none">
-        <CustomCursor />
+      <div className="relative w-full min-h-screen bg-[#050505] text-white overflow-x-hidden md:cursor-none">
+        
+        {/* Hide custom cursor on touch devices to prevent frozen dots */}
+        <div className="hidden md:block">
+          <CustomCursor />
+        </div>
         
         <AnimatePresence mode="wait">
           {loading && <Loader key="loader" onComplete={() => setLoading(false)} />}
