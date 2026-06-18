@@ -47,33 +47,38 @@ const SkillNode = ({ position, icon, name, color, selected, onSelect, onIconRigh
     }
   };
 
+  const iconRef = useRef();
+
   useFrame(({ clock }) => {
-    if (!nodeRef.current) return;
+    if (!nodeRef.current || !iconRef.current) return;
     const t = clock.getElapsedTime() + position[0] + position[1] + position[2];
+    
+    // Bouncing motion
     nodeRef.current.position.y = position[1] + Math.sin(t * 1.25) * 0.14;
-    nodeRef.current.rotation.y = Math.sin(t * 0.6) * 0.12;
+    
+    // Continuous spinning motion on the Y-axis (like a coin)
+    iconRef.current.style.transform = `rotateY(${t * 45}deg)`;
   });
 
   return (
     <group position={position} ref={nodeRef}>
-      <Html center occlude zIndexRange={[100, 0]} style={{ transform: 'none', WebkitTransform: 'none', MsTransform: 'none' }}>
+      <Html center occlude zIndexRange={[100, 0]} style={{ pointerEvents: 'none' }}>
         <div 
           onPointerEnter={handlePointerEnter}
           onPointerLeave={handlePointerLeave}
           onPointerDown={handlePointerDown}
           onPointerUp={handlePointerUp}
           onContextMenu={(e) => e.preventDefault()}
-          className={`relative flex items-center justify-center transition-all duration-300 cursor-pointer
+          className={`relative flex items-center justify-center transition-all duration-300 cursor-pointer pointer-events-auto
             ${hovered ? 'scale-130' : 'scale-100'}
           `}
-          style={{ transform: 'none' }}
         >
-          <div className="text-3xl" style={{ color, filter: selected ? `drop-shadow(0 0 12px ${color})` : 'none', transform: 'none' }}>
+          <div ref={iconRef} className="text-3xl" style={{ color, filter: selected ? `drop-shadow(0 0 12px ${color})` : 'none' }}>
             {icon}
           </div>
 
           {(selected || hovered) && (
-            <div className="absolute top-full mt-2 px-2 py-0.5 bg-[#050505]/90 rounded-md border border-white/20 text-xs font-mono uppercase tracking-widest text-gray-100" style={{ transform: 'none' }}>
+            <div className="absolute top-full mt-2 px-2 py-0.5 bg-[#050505]/90 rounded-md border border-white/20 text-xs font-mono uppercase tracking-widest text-gray-100">
               <p style={{ direction: 'ltr', unicodeBidi: 'plaintext', margin: 0 }}>
                 {name}
               </p>
@@ -128,8 +133,8 @@ const IconSphere = ({ skills }) => {
     speedRef.current = THREE.MathUtils.lerp(speedRef.current, targetSpeed, 0.12);
 
     if (!shouldStop) {
-      rotationRef.current.y += delta * 0.15;
-      rotationRef.current.x += delta * 0.025;
+      rotationRef.current.y += delta * 0.45; // Increased rotation speed
+      rotationRef.current.x += delta * 0.05;
     }
 
     // pointer influence only when right-drag is active, preventing jitter during simple hover
@@ -270,9 +275,7 @@ const SkillsSphere = () => {
 
   return (
     <>
-      <section id="skills" className="relative w-full h-screen bg-gradient-to-b from-[#050505] via-[#080813] to-[#050505] flex flex-col overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_25%_20%,rgba(57,255,20,0.12),transparent_35%),radial-gradient(circle_at_75%_80%,rgba(139,92,246,0.15),transparent_40%)]" />
-        
+      <section id="skills" className="relative w-full h-screen bg-black flex flex-col overflow-hidden">
         {/* Title block now pinned above the sphere */}
         <div className="absolute top-6 left-1/2 transform -translate-x-1/2 z-20 text-center pointer-events-none">
           <p className="text-gray-400 font-mono text-xs md:text-sm tracking-[0.3em] uppercase mb-2">Core Competencies</p>
@@ -302,7 +305,7 @@ const SkillsSphere = () => {
       </div>
       
       {/* Subtle floor gradient */}
-      <div className="absolute bottom-0 w-full h-40 bg-gradient-to-t from-[#050505] to-transparent pointer-events-none z-10"></div>
+      <div className="absolute bottom-0 w-full h-40 bg-gradient-to-t from-black to-transparent pointer-events-none z-10"></div>
 
     </section>
 

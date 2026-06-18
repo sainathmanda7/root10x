@@ -21,7 +21,7 @@ const Contact = () => {
           <FaLinkedin size={28} color="#0A66C2" className="relative z-10" />
         </div>
       ), 
-      label: 'LinkedIn', value: 'Connect', href: 'www.linkedin.com/in/sainath-manda', brandColor: '#0A66C2' },
+      label: 'LinkedIn', value: 'Connect', href: 'https://www.linkedin.com/in/sainath-manda/', brandColor: '#0A66C2' },
     { 
       id: 'github', 
       icon: <FaGithub size={28} color="#ffffff" />, // GitHub White
@@ -35,7 +35,7 @@ const Contact = () => {
     { 
       id: 'twitter', 
       icon: <FaTwitter size={28} color="#1DA1F2" />, // Twitter Blue
-      label: 'Twitter', value: 'Feed', href: '#', brandColor: '#1DA1F2' 
+      label: 'Twitter', value: 'Feed', href: 'https://x.com/Root_10x', brandColor: '#1DA1F2' 
     },
     { 
       id: 'website', 
