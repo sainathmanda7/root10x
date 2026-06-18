@@ -63,10 +63,10 @@ const AsciiAvatar = ({ imagePath = '/avatar.jpg' }) => {
     };
   }, [imagePath]);
 
-  // Wrappers enforce left-alignment and strip out unnecessary UI bloat
+  // Wrappers enforce center-alignment and responsive scaling
   return (
-    <div className="w-full flex justify-start overflow-hidden">
-      <canvas ref={canvasRef} className="bg-transparent block"></canvas>
+    <div className="w-full flex justify-center overflow-hidden">
+      <canvas ref={canvasRef} className="bg-transparent block max-w-full h-auto object-contain"></canvas>
     </div>
   );
 };
