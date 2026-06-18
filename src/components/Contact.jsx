@@ -60,10 +60,10 @@ const Contact = () => {
         </h3>
       </div>
 
-      <div className="relative w-[320px] h-[320px] md:w-[460px] md:h-[460px] flex items-center justify-center mt-16 md:mt-24">
+      <div className="relative w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[460px] md:h-[460px] flex items-center justify-center mt-16 md:mt-24">
         
         {/* The Central Wolf Logo */}
-        <div className="absolute z-30 w-36 h-36 md:w-56 md:h-56 rounded-full flex items-center justify-center animate-[pulse_4s_ease-in-out_infinite]">
+        <div className="absolute z-30 w-28 h-28 sm:w-36 sm:h-36 md:w-56 md:h-56 rounded-full flex items-center justify-center animate-[pulse_4s_ease-in-out_infinite]">
           <div className="absolute inset-0 bg-[#39ff14]/20 rounded-full blur-[40px]"></div>
           <img 
             src="/wolf-logo.png" 
@@ -75,7 +75,7 @@ const Contact = () => {
         {/* Inner Orbit Ring (Decorative) 
           👇 CHANGED: Forced pure white color with 20% opacity 
         */}
-        <div className="absolute w-[220px] h-[220px] md:w-[320px] md:h-[320px] rounded-full border border-[#ffffff]/20 border-dashed animate-[spin_30s_linear_infinite]"></div>
+        <div className="absolute w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] md:w-[320px] md:h-[320px] rounded-full border border-[#ffffff]/20 border-dashed animate-[spin_30s_linear_infinite]"></div>
 
         {/* Main Orbit Track 
           👇 CHANGED: Forced pure white color with 50% opacity so it is extremely visible
